@@ -1,0 +1,142 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for rainbow:rainbow-rubis:jar:2.1-SNAPSHOT
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-dependency-plugin @ line 217, column 22
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building rainbow-rubis 2.1-SNAPSHOT
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.1:create (default) @ rainbow-rubis ---
+[INFO] Checking for local modifications: skipped.
+[INFO] Updating project files from SCM: skipped.
+[INFO] Executing: /bin/sh -c cd /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis && svn --non-interactive info
+[INFO] Working directory: /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis
+[INFO] Storing buildNumber: null at timestamp: 1532981152043
+[INFO] Executing: /bin/sh -c cd /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis && svn --non-interactive info
+[INFO] Working directory: /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis
+[INFO] Storing buildScmBranch: UNKNOWN_BRANCH
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ rainbow-rubis ---
+[INFO] Using 'utf-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ rainbow-rubis ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 36 source files to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ rainbow-rubis ---
+[INFO] Using 'utf-8' encoding to copy filtered resources.
+[INFO] Copying 7 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:testCompile (default-testCompile) @ rainbow-rubis ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.12.4:test (default-test) @ rainbow-rubis ---
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:jar (default-jar) @ rainbow-rubis ---
+[INFO] Building jar: /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/rainbow-rubis-2.1-SNAPSHOT.jar
+[INFO] 
+[INFO] --- maven-jar-plugin:2.4:test-jar (default) @ rainbow-rubis ---
+[INFO] Building jar: /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/rainbow-rubis-2.1-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.5.2:install (default-install) @ rainbow-rubis ---
+[INFO] Installing /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/rainbow-rubis-2.1-SNAPSHOT.jar to /home/gmoreno/.m2/repository/rainbow/rainbow-rubis/2.1-SNAPSHOT/rainbow-rubis-2.1-SNAPSHOT.jar
+[INFO] Installing /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/pom.xml to /home/gmoreno/.m2/repository/rainbow/rainbow-rubis/2.1-SNAPSHOT/rainbow-rubis-2.1-SNAPSHOT.pom
+[INFO] Installing /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/rainbow-rubis-2.1-SNAPSHOT-tests.jar to /home/gmoreno/.m2/repository/rainbow/rainbow-rubis/2.1-SNAPSHOT/rainbow-rubis-2.1-SNAPSHOT-tests.jar
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:copy-dependencies (default) @ rainbow-rubis ---
+[INFO] Copying jyaml-1.3.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/jyaml-1.3.jar
+[INFO] Copying wagon-provider-api-1.0-beta-6.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/wagon-provider-api-1.0-beta-6.jar
+[INFO] Copying javacc-5.0.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/javacc-5.0.jar
+[INFO] Copying swing-worker-1.1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/swing-worker-1.1.jar
+[INFO] Copying swingx-1.6.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/swingx-1.6.jar
+[INFO] Copying log4j-1.2.17.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/log4j-1.2.17.jar
+[INFO] Copying xmlrpc-1.2-b1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/xmlrpc-1.2-b1.jar
+[INFO] Copying maven-settings-2.2.1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/maven-settings-2.2.1.jar
+[INFO] Copying aopalliance-1.0.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/aopalliance-1.0.jar
+[INFO] Copying maven-artifact-manager-2.2.1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/maven-artifact-manager-2.2.1.jar
+[INFO] Copying guice-4.0.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/guice-4.0.jar
+[INFO] Copying sisu-guice-3.1.0-no_aop.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/sisu-guice-3.1.0-no_aop.jar
+[INFO] Copying rainbow-stitch-2.1-SNAPSHOT.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/rainbow-stitch-2.1-SNAPSHOT.jar
+[INFO] Copying rainbow-acme-model-2.1-SNAPSHOT.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/rainbow-acme-model-2.1-SNAPSHOT.jar
+[INFO] Copying maven-project-2.2.1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/maven-project-2.2.1.jar
+[INFO] Copying commons-pool-1.5.4.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/commons-pool-1.5.4.jar
+[INFO] Copying plexus-component-annotations-1.5.5.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/plexus-component-annotations-1.5.5.jar
+[INFO] Copying antlr4-annotations-4.3.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/antlr4-annotations-4.3.jar
+[INFO] Copying reflections-0.9.9-RC1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/reflections-0.9.9-RC1.jar
+[INFO] Copying rainbow-core-2.1-SNAPSHOT.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/rainbow-core-2.1-SNAPSHOT.jar
+[INFO] Copying commons-logging-1.1.1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/commons-logging-1.1.1.jar
+[INFO] Copying hamcrest-core-1.3.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/hamcrest-core-1.3.jar
+[INFO] Copying maven-plugin-api-3.0.5.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/maven-plugin-api-3.0.5.jar
+[INFO] Copying sisu-inject-plexus-2.3.0.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/sisu-inject-plexus-2.3.0.jar
+[INFO] Copying antlr4-maven-plugin-4.3.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/antlr4-maven-plugin-4.3.jar
+[INFO] Copying xml-apis-1.3.04.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/xml-apis-1.3.04.jar
+[INFO] Copying antlr4-runtime-4.3.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/antlr4-runtime-4.3.jar
+[INFO] Copying plexus-utils-1.5.15.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/plexus-utils-1.5.15.jar
+[INFO] Copying plexus-interpolation-1.11.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/plexus-interpolation-1.11.jar
+[INFO] Copying dom4j-1.6.1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/dom4j-1.6.1.jar
+[INFO] Copying plexus-container-default-1.0-alpha-9-stable-1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/plexus-container-default-1.0-alpha-9-stable-1.jar
+[INFO] Copying acme-lib-3.5.10.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/acme-lib-3.5.10.jar
+[INFO] Copying plexus-compiler-api-2.2.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/plexus-compiler-api-2.2.jar
+[INFO] Copying plexus-build-api-0.0.7.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/plexus-build-api-0.0.7.jar
+[INFO] Copying hibernate-commons-annotations-4.0.2.Final.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/hibernate-commons-annotations-4.0.2.Final.jar
+[INFO] Copying jsr305-1.3.9.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/jsr305-1.3.9.jar
+[INFO] Copying jboss-transaction-api_1.1_spec-1.0.1.Final.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/jboss-transaction-api_1.1_spec-1.0.1.Final.jar
+[INFO] Copying hogna-1.0.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/hogna-1.0.jar
+[INFO] Copying bsh-2.0b4.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/bsh-2.0b4.jar
+[INFO] Copying hibernate-jpa-2.0-api-1.0.1.Final.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/hibernate-jpa-2.0-api-1.0.1.Final.jar
+[INFO] Copying commons-codec-1.3.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/commons-codec-1.3.jar
+[INFO] Copying parsec-1.0.0.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/parsec-1.0.0.jar
+[INFO] Copying sisu-inject-bean-2.3.0.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/sisu-inject-bean-2.3.0.jar
+[INFO] Copying junit-4.11.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/junit-4.11.jar
+[INFO] Copying commons-lang-2.6.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/commons-lang-2.6.jar
+[INFO] Copying classworlds-1.1-alpha-2.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/classworlds-1.1-alpha-2.jar
+[INFO] Copying plexus-classworlds-2.4.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/plexus-classworlds-2.4.jar
+[INFO] Copying opera-1.0.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/opera-1.0.jar
+[INFO] Copying eseblib-1.0.1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/eseblib-1.0.1.jar
+[INFO] Copying sisu-guava-0.9.9.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/sisu-guava-0.9.9.jar
+[INFO] Copying incubator-1.4.1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/incubator-1.4.1.jar
+[INFO] Copying maven-repository-metadata-2.2.1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/maven-repository-metadata-2.2.1.jar
+[INFO] Copying commons-httpclient-3.0.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/commons-httpclient-3.0.jar
+[INFO] Copying ST4-4.0.8.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/ST4-4.0.8.jar
+[INFO] Copying antlr-runtime-3.5.2.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/antlr-runtime-3.5.2.jar
+[INFO] Copying xercesImpl-2.9.1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/xercesImpl-2.9.1.jar
+[INFO] Copying javassist-3.16.1-GA.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/javassist-3.16.1-GA.jar
+[INFO] Copying hibernate-core-4.2.8.Final.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/hibernate-core-4.2.8.Final.jar
+[INFO] Copying javax.inject-1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/javax.inject-1.jar
+[INFO] Copying maven-profile-2.2.1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/maven-profile-2.2.1.jar
+[INFO] Copying commons-beanutils-1.8.3.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/commons-beanutils-1.8.3.jar
+[INFO] Copying antlr-2.7.6.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/antlr-2.7.6.jar
+[INFO] Copying maven-artifact-3.0.5.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/maven-artifact-3.0.5.jar
+[INFO] Copying maven-model-3.0.5.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/maven-model-3.0.5.jar
+[INFO] Copying antlr4-4.3.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/antlr4-4.3.jar
+[INFO] Copying pladapt_wrap-1.0.1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/pladapt_wrap-1.0.1.jar
+[INFO] Copying rmi-lite-1.0.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/rmi-lite-1.0.jar
+[INFO] Copying org.abego.treelayout.core-1.0.1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/org.abego.treelayout.core-1.0.1.jar
+[INFO] Copying jboss-logging-3.1.0.GA.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/jboss-logging-3.1.0.GA.jar
+[INFO] Copying typelib-1.0.0.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/typelib-1.0.0.jar
+[INFO] Copying commons-io-1.3.2.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/commons-io-1.3.2.jar
+[INFO] Copying guava-11.0.2.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/guava-11.0.2.jar
+[INFO] Copying libpladapt_wrap-1.0.1-x86_64.so to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/libpladapt_wrap-1.0.1-x86_64.so
+[INFO] Copying acr-interface-2007.1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/acr-interface-2007.1.jar
+[INFO] Copying filters-2.0.235.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/filters-2.0.235.jar
+[INFO] Copying rainbow-utility-model-2.1-SNAPSHOT.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/rainbow-utility-model-2.1-SNAPSHOT.jar
+[INFO] Copying maven-plugin-registry-2.2.1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/maven-plugin-registry-2.2.1.jar
+[INFO] Copying backport-util-concurrent-3.1.jar to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/backport-util-concurrent-3.1.jar
+[INFO] 
+[INFO] --- maven-dependency-plugin:2.8:copy (copy) @ rainbow-rubis ---
+[INFO] Configured Artifact: pladapt:libpladapt_wrap:x86_64:1.0.1:so
+[INFO] Copying libpladapt_wrap-1.0.1-x86_64.so to /home/gmoreno/research/rainbow-new/rainbow/deployments/rainbow-rubis/target/lib/libpladapt_wrap.so
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 2.472 s
+[INFO] Finished at: 2018-07-30T16:05:53-04:00
+[INFO] Final Memory: 29M/313M
+[INFO] ------------------------------------------------------------------------

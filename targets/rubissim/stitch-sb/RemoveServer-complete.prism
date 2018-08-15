@@ -1,0 +1,319 @@
+dtmc
+// Init must include 
+// const double AddServer_LATENCY 
+// const int HORIZON
+// const double PERIOD
+// const int DIMMER_LEVELS
+// const double DIMMER_MARGIN
+// const int MAX_SERVERS
+// const double RT_THRESHOLD
+// const int ini_servers
+// const int ini_dimmer
+// const double serviceTimeMean
+// const double serviceTimeVariance
+// const double lowServiceTimeMean
+// const double lowServiceTimeVariance
+// const int threads
+///
+const int AddServer_state = 0;
+const int TAddServer_LATENCY = 3;
+const int HORIZON = 7;
+const double PERIOD = 60.0;
+const int DIMMER_LEVELS = 5;
+const double DIMMER_MARGIN = 0.1;
+const int MAX_SERVERS = 3;
+const double RT_THRESHOLD = 0.75;
+const int ini_servers = 2;
+const int ini_dimmer = 1;
+const double serviceTimeMean = 0.038175784053261524;
+const double serviceTimeVariance = 0.0014573904880812569;
+const double lowServiceTimeMean = 0.001225670799854914;
+const double lowServiceTimeVariance = 1.5022689096169845E-6;
+const int threads = 100;
+
+label "initState" = servers = ini_servers & dimmer = ini_dimmer;
+
+label "final" = time = HORIZON & readyToTick;
+formula sys_go = readyToTick;
+
+module clk
+	time : [0..HORIZON] init 0;
+	readyToTick : bool init true;
+	[tick] readyToTick & time < HORIZON -> 1 : (time' = time + 1) & (readyToTick'=false);
+	[tack] !readyToTick -> 1 : (readyToTick'=true);
+endmodule
+
+module env
+s : [0..57] init 0;
+[tick] s = 0 -> 
+	0.185 : (s' = 1)
+	+ 0.63 : (s' = 2)
+	+ 0.185 : (s' = 3);
+[tick] s = 1 -> 
+	0.185 : (s' = 40)
+	+ 0.63 : (s' = 41)
+	+ 0.185 : (s' = 42);
+[tick] s = 2 -> 
+	0.185 : (s' = 22)
+	+ 0.63 : (s' = 23)
+	+ 0.185 : (s' = 24);
+[tick] s = 3 -> 
+	0.185 : (s' = 4)
+	+ 0.63 : (s' = 5)
+	+ 0.185 : (s' = 6);
+[tick] s = 4 -> 
+	1 : (s' = 17);
+[tick] s = 5 -> 
+	1 : (s' = 12);
+[tick] s = 6 -> 
+	1 : (s' = 7);
+[tick] s = 7 -> 
+	1 : (s' = 8);
+[tick] s = 8 -> 
+	1 : (s' = 9);
+[tick] s = 9 -> 
+	1 : (s' = 10);
+[tick] s = 10 -> 
+	1 : (s' = 11);
+[tick] s = 11 -> 
+	1 : (s' = 11);
+[tick] s = 12 -> 
+	1 : (s' = 13);
+[tick] s = 13 -> 
+	1 : (s' = 14);
+[tick] s = 14 -> 
+	1 : (s' = 15);
+[tick] s = 15 -> 
+	1 : (s' = 16);
+[tick] s = 16 -> 
+	1 : (s' = 16);
+[tick] s = 17 -> 
+	1 : (s' = 18);
+[tick] s = 18 -> 
+	1 : (s' = 19);
+[tick] s = 19 -> 
+	1 : (s' = 20);
+[tick] s = 20 -> 
+	1 : (s' = 21);
+[tick] s = 21 -> 
+	1 : (s' = 21);
+[tick] s = 22 -> 
+	1 : (s' = 35);
+[tick] s = 23 -> 
+	1 : (s' = 30);
+[tick] s = 24 -> 
+	1 : (s' = 25);
+[tick] s = 25 -> 
+	1 : (s' = 26);
+[tick] s = 26 -> 
+	1 : (s' = 27);
+[tick] s = 27 -> 
+	1 : (s' = 28);
+[tick] s = 28 -> 
+	1 : (s' = 29);
+[tick] s = 29 -> 
+	1 : (s' = 29);
+[tick] s = 30 -> 
+	1 : (s' = 31);
+[tick] s = 31 -> 
+	1 : (s' = 32);
+[tick] s = 32 -> 
+	1 : (s' = 33);
+[tick] s = 33 -> 
+	1 : (s' = 34);
+[tick] s = 34 -> 
+	1 : (s' = 34);
+[tick] s = 35 -> 
+	1 : (s' = 36);
+[tick] s = 36 -> 
+	1 : (s' = 37);
+[tick] s = 37 -> 
+	1 : (s' = 38);
+[tick] s = 38 -> 
+	1 : (s' = 39);
+[tick] s = 39 -> 
+	1 : (s' = 39);
+[tick] s = 40 -> 
+	1 : (s' = 53);
+[tick] s = 41 -> 
+	1 : (s' = 48);
+[tick] s = 42 -> 
+	1 : (s' = 43);
+[tick] s = 43 -> 
+	1 : (s' = 44);
+[tick] s = 44 -> 
+	1 : (s' = 45);
+[tick] s = 45 -> 
+	1 : (s' = 46);
+[tick] s = 46 -> 
+	1 : (s' = 47);
+[tick] s = 47 -> 
+	1 : (s' = 47);
+[tick] s = 48 -> 
+	1 : (s' = 49);
+[tick] s = 49 -> 
+	1 : (s' = 50);
+[tick] s = 50 -> 
+	1 : (s' = 51);
+[tick] s = 51 -> 
+	1 : (s' = 52);
+[tick] s = 52 -> 
+	1 : (s' = 52);
+[tick] s = 53 -> 
+	1 : (s' = 54);
+[tick] s = 54 -> 
+	1 : (s' = 55);
+[tick] s = 55 -> 
+	1 : (s' = 56);
+[tick] s = 56 -> 
+	1 : (s' = 57);
+[tick] s = 57 -> 
+	1 : (s' = 57);
+endmodule
+
+// environment has 1 components
+
+formula stateValue = (s = 0 ? 63.7 : 0) + 
+                     (s = 1 ? 62.9675 : 0) + 
+                     (s = 2 ? 67.6206 : 0) + 
+                     (s = 3 ? 72.2737 : 0) + 
+                     (s = 4 ? 70.7235 : 0) + 
+                     (s = 5 ? 75.4919 : 0) + 
+                     (s = 6 ? 80.2602 : 0) + 
+                     (s = 7 ? 82.8395 : 0) + 
+                     (s = 8 ? 85.2124 : 0) + 
+                     (s = 9 ? 87.3954 : 0) + 
+                     (s = 10 ? 89.4038 : 0) + 
+                     (s = 11 ? 91.2516 : 0) + 
+                     (s = 12 ? 78.4526 : 0) + 
+                     (s = 13 ? 81.1764 : 0) + 
+                     (s = 14 ? 83.6824 : 0) + 
+                     (s = 15 ? 85.9878 : 0) + 
+                     (s = 16 ? 88.1088 : 0) + 
+                     (s = 17 ? 74.0657 : 0) + 
+                     (s = 18 ? 77.1405 : 0) + 
+                     (s = 19 ? 79.9693 : 0) + 
+                     (s = 20 ? 82.5718 : 0) + 
+                     (s = 21 ? 84.9661 : 0) + 
+                     (s = 22 ? 66.6269 : 0) + 
+                     (s = 23 ? 71.211 : 0) + 
+                     (s = 24 ? 75.7952 : 0) + 
+                     (s = 25 ? 78.7316 : 0) + 
+                     (s = 26 ? 81.4331 : 0) + 
+                     (s = 27 ? 83.9185 : 0) + 
+                     (s = 28 ? 86.2051 : 0) + 
+                     (s = 29 ? 88.3087 : 0) + 
+                     (s = 30 ? 74.5142 : 0) + 
+                     (s = 31 ? 77.5531 : 0) + 
+                     (s = 32 ? 80.3489 : 0) + 
+                     (s = 33 ? 82.9211 : 0) + 
+                     (s = 34 ? 85.2874 : 0) + 
+                     (s = 35 ? 70.2968 : 0) + 
+                     (s = 36 ? 73.6731 : 0) + 
+                     (s = 37 ? 76.7793 : 0) + 
+                     (s = 38 ? 79.637 : 0) + 
+                     (s = 39 ? 82.2661 : 0) + 
+                     (s = 40 ? 62.1618 : 0) + 
+                     (s = 41 ? 66.9302 : 0) + 
+                     (s = 42 ? 71.6986 : 0) + 
+                     (s = 43 ? 74.9627 : 0) + 
+                     (s = 44 ? 77.9658 : 0) + 
+                     (s = 45 ? 80.7285 : 0) + 
+                     (s = 46 ? 83.2703 : 0) + 
+                     (s = 47 ? 85.6087 : 0) + 
+                     (s = 48 ? 70.5758 : 0) + 
+                     (s = 49 ? 73.9298 : 0) + 
+                     (s = 50 ? 77.0155 : 0) + 
+                     (s = 51 ? 79.8543 : 0) + 
+                     (s = 52 ? 82.466 : 0) + 
+                     (s = 53 ? 66.1889 : 0) + 
+                     (s = 54 ? 69.8939 : 0) + 
+                     (s = 55 ? 73.3024 : 0) + 
+                     (s = 56 ? 76.4383 : 0) + 
+                     (s = 57 ? 79.3233 : 0);
+
+
+// system
+module sys
+	servers : [1..MAX_SERVERS] init ini_servers;
+	dimmer : [1..DIMMER_LEVELS] init ini_dimmer;
+	
+	[AddServer_complete] servers < MAX_SERVERS -> 1 : (servers' = servers + 1);
+	[RemoveServer_start] servers > 1 -> 1 : (servers' = servers - 1);
+	[IncDimmer_start] dimmer < DIMMER_LEVELS -> 1 : (dimmer' = dimmer + 1);
+	[DecDimmer_start] dimmer > 1 -> 1 : (dimmer' = dimmer - 1);
+	[MaxDimmer_start] true -> 1 : (dimmer' = DIMMER_LEVELS);
+	[MinDimmer_start] true -> 1 : (dimmer' = 1);
+endmodule
+
+
+// continuous equivalent for the dimmer level
+formula dimmerFactor = DIMMER_MARGIN + (1 - 2 * DIMMER_MARGIN) * (dimmer - 1) / (DIMMER_LEVELS - 1);
+
+//*****************************************************************
+// Queuing model G/G/c LPS with round-robin allocation to servers
+//*****************************************************************
+formula arrivalRate = stateValue;
+
+// TODO for now assume arrivals have exponential distribution,
+// otherwise we need to introduce variance into the probability tree
+formula arrivalRateVariance = pow(arrivalRate, 2);
+
+formula lambda = arrivalRate / servers;
+formula beta = dimmerFactor * serviceTimeMean + (1-dimmerFactor) * lowServiceTimeMean;
+formula rho = lambda * beta;
+formula overloaded = (rho >= 1);
+formula ca2 = pow(arrivalRate, 2) / (arrivalRateVariance * servers);
+formula cs2 = (dimmerFactor * serviceTimeVariance + (1-dimmerFactor) * lowServiceTimeVariance) / pow(beta, 2);
+formula dp = pow(rho, threads * (1+cs2)/(ca2 + cs2));
+formula rb = ((ca2 + cs2) / 2) * dp * beta / (1 - rho);
+formula rz = ((ca2 + cs2) / (1 + cs2)) * (1 - dp) * beta / (1 - rho);
+formula totalTime = rb + rz;
+formula rt = (arrivalRate=0 ? 0 : totalTime);
+
+// Response time to clients utility function
+const double SERVER_COST_SEC = 1;
+const double MAX_ARRIVAL_CAPACITY = 1/0.04452713;
+const double MAX_ARRIVAL_CAPACITY_LOW = 1/0.002430258;
+
+const double NORMAL_REVENUE = 1.5;
+const double LOW_REVENUE = 1;
+formula poweredServers = (AddServer_state > 0 ? servers + 1 : servers);
+formula cost = poweredServers;
+formula spacing = MAX_SERVERS + 1;
+formula maxThroughput = MAX_SERVERS * MAX_ARRIVAL_CAPACITY;
+formula latePenalty = maxThroughput * NORMAL_REVENUE * spacing;
+
+formula throughput = arrivalRate;
+
+formula positiveUtilityTemp = throughput * (dimmerFactor * NORMAL_REVENUE + (1-dimmerFactor) * LOW_REVENUE);
+formula positiveUtility = ((positiveUtilityTemp - floor(positiveUtilityTemp) >= 0.5) ? ceil(positiveUtilityTemp) : floor(positiveUtilityTemp)) * spacing;
+
+formula uTotal = (overloaded) ? (-latePenalty - 2 * spacing + poweredServers + (1-dimmerFactor))
+					: (((rt>RT_THRESHOLD) ? min(0, throughput * NORMAL_REVENUE * spacing - latePenalty) : positiveUtility) - cost);
+
+rewards "util"
+	!readyToTick : (1000000.0 / HORIZON) + (PERIOD)*(uTotal);
+endrewards
+
+
+//**************************************************************
+// Strategy RemoveServer
+//**************************************************************
+formula leaf = (node=1);
+
+module Strategy
+	node : [0..1] init 0;
+
+	[RemoveServer_start] (sys_go & node=0) -> 1: (node'=1);
+
+	[tick]	(leaf) -> 1: true;	
+
+	// prevent all other tactics from executing
+	[AddServer_complete] false -> true;
+	[IncDimmer_start] false -> true;
+	[DecDimmer_start] false -> true;
+	[MinDimmer_start] false -> true;
+	[MaxDimmer_start] false -> true;
+endmodule
+

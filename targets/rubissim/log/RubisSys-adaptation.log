@@ -1,0 +1,82 @@
+1477403973187,queuing,strategy: name "RemoveServer" {
+	  vars [
+	  ]
+	  nodes [
+		*0*:  ( > numberOfServers 1 ) subnodes[ t1 ]
+		t1:  true -> TRemoveServer() subnodes[ t1a ]
+		t1a:  DONE subnodes[ ]
+	  ]
+	}
+1477404035946,queuing,strategy: name "RemoveServer" {
+	  vars [
+	  ]
+	  nodes [
+		*0*:  ( > numberOfServers 1 ) subnodes[ t1 ]
+		t1:  true -> TRemoveServer() subnodes[ t1a ]
+		t1a:  DONE subnodes[ ]
+	  ]
+	}
+1477405354415,queuing,strategy: name "AddServer" {
+	  vars [
+	  ]
+	  nodes [
+		*0*:  ( > ( METHOD_CALL Rubis.availableServices ( EXPR_LIST ( EXPR M ) ( EXPR T.ServerT ) ) ) 0 ) subnodes[ t1 ]
+		t1:  true -> TAddServer() @ 180000 subnodes[ t1a ]
+		t1a:  DONE subnodes[ ]
+	  ]
+	}
+1477405595808,queuing,strategy: name "AddServer" {
+	  vars [
+	  ]
+	  nodes [
+		*0*:  ( > ( METHOD_CALL Rubis.availableServices ( EXPR_LIST ( EXPR M ) ( EXPR T.ServerT ) ) ) 0 ) subnodes[ t1 ]
+		t1:  true -> TAddServer() @ 180000 subnodes[ t1a ]
+		t1a:  DONE subnodes[ ]
+	  ]
+	}
+1477405832931,queuing,strategy: name "RemoveServer" {
+	  vars [
+	  ]
+	  nodes [
+		*0*:  ( > numberOfServers 1 ) subnodes[ t1 ]
+		t1:  true -> TRemoveServer() subnodes[ t1a ]
+		t1a:  DONE subnodes[ ]
+	  ]
+	}
+1477406135759,queuing,strategy: name "ReduceContentAndAddServer" {
+	  vars [
+	  ]
+	  nodes [
+		*0*:  ( && ( > ( METHOD_CALL Rubis.availableServices ( EXPR_LIST ( EXPR M ) ( EXPR T.ServerT ) ) ) 0 ) ( > M.LB0.dimmer M.DIMMER_MARGIN ) ) subnodes[ t1 ]
+		t1:  true -> TDecDimmer() subnodes[ t1a ]
+		t1a:  true -> TAddServer() @ 180000 subnodes[ t1a1 ]
+		t1a1:  DONE subnodes[ ]
+	  ]
+	}
+1477406374346,queuing,strategy: name "MinimizeContent" {
+	  vars [
+	  ]
+	  nodes [
+		*0*:  ( > M.LB0.dimmer M.DIMMER_MARGIN ) subnodes[ t1 ]
+		t1:  true -> TSetMinDimmer() subnodes[ t1a ]
+		t1a:  DONE subnodes[ ]
+	  ]
+	}
+1477406432916,queuing,strategy: name "RemoveServer" {
+	  vars [
+	  ]
+	  nodes [
+		*0*:  ( > numberOfServers 1 ) subnodes[ t1 ]
+		t1:  true -> TRemoveServer() subnodes[ t1a ]
+		t1a:  DONE subnodes[ ]
+	  ]
+	}
+1477406494284,queuing,strategy: name "RemoveServer" {
+	  vars [
+	  ]
+	  nodes [
+		*0*:  ( > numberOfServers 1 ) subnodes[ t1 ]
+		t1:  true -> TRemoveServer() subnodes[ t1a ]
+		t1a:  DONE subnodes[ ]
+	  ]
+	}

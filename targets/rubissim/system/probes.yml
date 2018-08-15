@@ -1,0 +1,95 @@
+vars:
+  _probes.commonPath: "${rainbow.path}/system/probes"
+
+probes:
+  DimmerProbe:
+    alias: dimmer
+    location: "${customize.system.target.lb}"
+    type: script
+    scriptInfo:
+      mode: continual
+      path    : "${_probes.commonPath}/genericProbe.pl"
+      argument: "0.9"
+  ServersProbe:
+    alias: servers
+    location: "${customize.system.target.lb}"
+    type: script
+    scriptInfo:
+      mode: continual
+      path    : "${_probes.commonPath}/genericProbe.pl"
+      argument: "1"
+  ActiveServersProbe:
+    alias: activeServers
+    location: "${customize.system.target.lb}"
+    type: script
+    scriptInfo:
+      mode: continual
+      path    : "${_probes.commonPath}/genericProbe.pl"
+      argument: "1"
+  LoadProbe1:
+    alias: load1
+    location: "${customize.system.target.lb}"
+    type: script
+    scriptInfo:
+      mode: continual
+      path    : "${_probes.commonPath}/genericProbe.pl"
+      argument: "-d 5000 0.5"
+  LoadProbe2:
+    alias: load2
+    location: "${customize.system.target.lb}"
+    type: script
+    scriptInfo:
+      mode: continual
+      path    : "${_probes.commonPath}/genericProbe.pl"
+      argument: "-d 5000 0"
+  LoadProbe3:
+    alias: load3
+    location: "${customize.system.target.lb}"
+    type: script
+    scriptInfo:
+      mode: continual
+      path    : "${_probes.commonPath}/genericProbe.pl"
+      argument: "-d 5000 0"
+  ArrivalRateProbe:
+    alias: arrivalRate
+    location: "${customize.system.target.lb}"
+    type: script
+    scriptInfo:
+      mode: continual
+      path    : "${_probes.commonPath}/genericProbe.pl"
+      argument: "-d 5000 60"
+  BasicResponseTimeProbe:
+    alias: basicResponseTime
+    location: "${customize.system.target.lb}"
+    type: script
+    scriptInfo:
+      mode: continual
+      path    : "${_probes.commonPath}/genericProbe.pl"
+      argument: "0.003"
+  OptResponseTimeProbe:
+    alias: optResponseTime
+    location: "${customize.system.target.lb}"
+    type: script
+    scriptInfo:
+      mode: continual
+      path    : "${_probes.commonPath}/genericProbe.pl"
+      argument: "0.08"
+  BasicThroughputProbe:
+    alias: basicThroughput
+    location: "${customize.system.target.lb}"
+    type: script
+    scriptInfo:
+      mode: continual
+      path    : "${_probes.commonPath}/genericProbe.pl"
+      argument: "60"
+  OptThroughputProbe:
+    alias: optThroughput
+    location: "${customize.system.target.lb}"
+    type: script
+    scriptInfo:
+      mode: continual
+      path    : "${_probes.commonPath}/genericProbe.pl"
+      argument: "60"
+unused-probes:
+
+

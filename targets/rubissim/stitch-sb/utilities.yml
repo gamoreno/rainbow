@@ -1,0 +1,28 @@
+model:
+  name: RubisSys
+  type: Acme
+utilities:
+  uC:
+    label: "Average Server Cost"
+    mapping: "[EXPR]size(/self/components:ServerT[isArchEnabled])"
+    description: "Server cost in unit/hr, C, averaged from a float property 'ServerT.cost' in the architecture, and captures average cost across all servers. Adapted to a 3-server configuration."
+    utility:
+      0: 1.00
+      1: 0.90
+      2: 0.30
+      3: 0.10
+
+# Weighted utility preferences, each set should sum to 1.
+# Three scenarios:
+#   1.) Priority is given to eliminating malicious clients.
+#   2.) Priority is given to optimizing good client experience (both serving them in a timely manner, and minimizing annoyance).
+#   3.) Priority is given to keeping cost down.
+#  Note: Original Weight of uR is now split 50/50% among uR and uA in every scenario. 
+weights:
+  scenario 1:
+    uC: 1
+
+vectors:
+  lowerDimmer:
+    uC: -2
+
