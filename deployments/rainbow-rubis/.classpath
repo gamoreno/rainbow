@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry excluding="org/sa/rainbow/translator/znn/gauges/DiagnosisGauge.java|org/sa/rainbow/translator/znn/gauges/EchoGauge.java|org/sa/rainbow/rubis/adaptation/RubisUtilityFunction.java|org/sa/rainbow/rubis/adaptation/AdaptationManager.java" kind="src" output="target/classes" path="src/main/java">
+	<classpathentry excluding="org/sa/rainbow/translator/znn/gauges/DiagnosisGauge.java|org/sa/rainbow/translator/znn/gauges/EchoGauge.java|org/sa/rainbow/rubis/adaptation/RubisUtilityFunction.java|org/sa/rainbow/rubis/adaptation/AdaptationManager.java|org/sa/rainbow/rubis/adaptation/OperaWrapper.java" kind="src" output="target/classes" path="src/main/java">
 		<attributes>
 			<attribute name="optional" value="true"/>
 			<attribute name="maven.pomderived" value="true"/>

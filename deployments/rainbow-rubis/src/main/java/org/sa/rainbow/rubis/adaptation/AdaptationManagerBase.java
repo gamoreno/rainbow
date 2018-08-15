@@ -140,7 +140,6 @@ public abstract class AdaptationManagerBase extends AbstractRainbowRunnable
     
     protected int m_horizon;
     private TimeSeriesPredictorModelInstance m_tspModel;
-    private OperaWrapper m_opera;
     private double m_lastBasicResponseTime;
     private double m_lastOptResponseTime;
     protected boolean m_isInitialized = false;
@@ -422,73 +421,10 @@ public abstract class AdaptationManagerBase extends AbstractRainbowRunnable
 //        System.loadLibrary("pladapt_wrap");
 //      }
     
-    private void initOpera() {
-        log("Initializing Opera");
-        File operaConfigFile = Util.getRelativeToPath (Rainbow.instance ().getTargetPath (),
-                Rainbow.instance ().getProperty (PLA_OPERA_CONFIG));
-        m_opera = new OperaWrapper();
-        m_opera.configure(operaConfigFile);
-        log("Opera initialized");
-    }
     
     /**
      * update KF using Opera model
      */
-    private void updateOperaKF(RubisModelHelper rubisModel) {
-    	
-        // update KF
-        // utilization and arrival rate have to be normalized to a single server (we assumed all are identical)
-    	double obsBasicThroughput = rubisModel.getBasicThroughput();
-    	double obsOptThroughput = rubisModel.getOptThroughput();
-    	double obsBasicResponseTime = rubisModel.getBasicResponseTime();
-    	double obsOptResponseTime = rubisModel.getOptResponseTime();
-    	
-        int activeServers = rubisModel.getNumActiveServers();
-        double avgUtilization = rubisModel.getAvgUtilization();
-        double basicResponseTime = 0;
-        if (obsBasicThroughput > 0.0) {
-            basicResponseTime = obsBasicResponseTime;
-            m_lastBasicResponseTime = basicResponseTime;
-        } else {
-            basicResponseTime = m_lastBasicResponseTime;
-        }
-        double optResponseTime = 0;
-        if (obsOptThroughput > 0.0) {
-            optResponseTime = obsOptResponseTime;
-            m_lastOptResponseTime = optResponseTime;
-        } else {
-            optResponseTime = m_lastOptResponseTime;
-        }
-
-        double arrivalRate = rubisModel.getArrivalRate();
-        double dimmer = rubisModel.getCurrentDimmer();
-        double normalArrivalRate = arrivalRate * dimmer;
-        double lowArrivalRate = arrivalRate * (1 - dimmer);
-
-
-        log("KF update : servers=" + activeServers
-                + " avgutil=" + avgUtilization
-                + " normalAR=" + normalArrivalRate
-                + " normalRT=" + optResponseTime
-                + " normalTP=" + obsOptThroughput
-                + " low: AR=" + lowArrivalRate
-                + " RT=" + basicResponseTime
-                + " TP=" + obsBasicThroughput);
-        m_opera.updateModel(activeServers, avgUtilization,
-                normalArrivalRate, optResponseTime, obsOptThroughput,
-                lowArrivalRate, basicResponseTime, obsBasicThroughput);
-
-        double[] results  = m_opera.getParamEstimates();
-        double estBasicServiceTime = results[1];
-        double estOptServiceTime = results[0];
-
-        log("KF output X low(" + estBasicServiceTime + ')'
-                + ", normal(" + estOptServiceTime +  ')');
-        rubisModel.setEstimatedBasicServiceTime(estBasicServiceTime, Math.pow(estBasicServiceTime, 2));
-        rubisModel.setEstimatedOptServiceTime(estOptServiceTime, Math.pow(estOptServiceTime, 2));
-    }
-    
-
   
     protected Strategy getStrategy(String name) {
     	Strategy strategy = null;
@@ -517,7 +453,7 @@ public abstract class AdaptationManagerBase extends AbstractRainbowRunnable
      */
     protected void initializeAdaptationMgr(RubisModelHelper rubisModel) {
         //computeDecisionHorizon(rubisModel);
-        initOpera();
+//        initOpera();
     	m_isInitialized = true;
     }
 
@@ -538,7 +474,7 @@ public abstract class AdaptationManagerBase extends AbstractRainbowRunnable
         	initializeAdaptationMgr(rubisModel);
         }
 
-        updateOperaKF(rubisModel);
+        //updateOperaKF(rubisModel);
         
         // the env generation is part of the decision as in OMNeT
     	long start = System.currentTimeMillis();

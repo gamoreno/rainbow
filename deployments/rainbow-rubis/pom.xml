@@ -122,6 +122,7 @@
 					   <exclude>org/sa/rainbow/translator/znn/gauges/EchoGauge.java</exclude>
 					   <exclude>org/sa/rainbow/rubis/adaptation/RubisUtilityFunction.java</exclude>
 					   <exclude>org/sa/rainbow/rubis/adaptation/AdaptationManager.java</exclude>
+					   <exclude>org/sa/rainbow/rubis/adaptation/OperaWrapper.java</exclude>
 					</excludes>
 				</configuration>
 			</plugin>
@@ -486,6 +487,7 @@
 			<version>2.9.0</version>
 		</dependency>
 -->
+<!-- 
 		<dependency>
 			<groupId>opera</groupId>
 			<artifactId>hogna</artifactId>
@@ -496,6 +498,7 @@
 			<artifactId>opera</artifactId>
 			<version>1.0</version>
 		</dependency>
+ -->		
 		<dependency>
 		    <groupId>xerces</groupId>
 		    <artifactId>xercesImpl</artifactId>
