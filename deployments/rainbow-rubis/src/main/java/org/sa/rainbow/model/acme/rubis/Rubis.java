@@ -36,7 +36,6 @@ import org.acmestudio.acme.rule.node.IExpressionNode;
 import org.acmestudio.acme.type.verification.NodeScopeLookup;
 import org.acmestudio.acme.type.verification.RuleTypeChecker;
 import org.acmestudio.standalone.resource.StandaloneLanguagePackHelper;
-import org.sa.rainbow.stitch.core.MyInteger;
 
 /**
  * This class provides RUBiS-specific operators that can be referred to in strategies and tactics. This class can be
@@ -64,7 +63,7 @@ public class Rubis {
      * @return the number of services that are available.
      * @throws Exception
      */
-    public static MyInteger availableServices (RubisModelUpdateOperatorsImpl model, IAcmeElementType<?, ?> elemType)
+    public static int availableServices (RubisModelUpdateOperatorsImpl model, IAcmeElementType<?, ?> elemType)
             throws Exception {
         if (s_availableServicesExpr == null) {
             s_availableServicesExpr = StandaloneLanguagePackHelper.defaultLanguageHelper ()
@@ -75,10 +74,9 @@ public class Rubis {
         // Add "T" as a name in scope, referring to the type that we are looking for
         NodeScopeLookup nameLookup = new NodeScopeLookup ();
         nameLookup.put ("T", elemType);
-        return new MyInteger(RuleTypeChecker.evaluateAsInt (model.getModelInstance (), null, s_availableServicesExpr,
+        return RuleTypeChecker.evaluateAsInt (model.getModelInstance (), null, s_availableServicesExpr,
                 new Stack<AcmeError> (),
-                nameLookup));
-
+                nameLookup);
     }
 
     /**
